@@ -1,0 +1,47 @@
+﻿@model IEnumerable<VisitorRegister.Models.Visitor>
+
+@{
+    ViewData["Title"] = "Visitor Register";
+}
+
+<h1>Visitor Register</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Sign in</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>No visitors have signed in yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone number</th>
+                <th>Reason for visit</th>
+                <th>Date and time (UTC)</th>
+                <th>Signature</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.ReasonForVisit</td>
+                    <td>@item.VisitDateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>
+                        <img src="data:image/png;base64,@Convert.ToBase64String(item.Signature)"
+                             alt="Signature of @item.Name @item.Surname" height="50" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
