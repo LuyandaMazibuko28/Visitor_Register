@@ -12,13 +12,14 @@ namespace VisitorRegister.Controllers
         {
             _context = context;
         }
+
         public async Task<IActionResult> Index()
         {
             var visitors = await _context.Visitors
                 .OrderByDescending(v => v.VisitDateTime)
                 .ToListAsync();
 
-            return View();
+            return View(visitors);
         }
     }
 }

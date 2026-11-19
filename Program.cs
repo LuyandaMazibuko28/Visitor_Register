@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Register the database context so controllers can use it, connecting to SQL Server LocalDB
 builder.Services.AddDbContext<VisitorDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
