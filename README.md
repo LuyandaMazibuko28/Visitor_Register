@@ -38,7 +38,3 @@ The connection string is in `appsettings.json`.
 ## Status
 Working version complete: a visitor can sign in, and the list shows everyone who has signed in. Times are currently stored and shown in UTC.
 
-## Planned
-- Show times in South African time
-- Country code for phone numbers
-- More fields to make the system more helpful
